@@ -1,0 +1,2208 @@
+Index: ../Games/quiz-game/.idea/.gitignore
+===================================================================
+diff --git a/../Games/quiz-game/.idea/.gitignore b/../Games/quiz-game/.idea/.gitignore
+deleted file mode 100644
+--- a/../Games/quiz-game/.idea/.gitignore	(revision cb6ae9f95bc57683db76624a64eae164fb3b0027)
++++ /dev/null	(revision cb6ae9f95bc57683db76624a64eae164fb3b0027)
+@@ -1,3 +0,0 @@
+-# Default ignored files
+-/shelf/
+-/workspace.xml
+Index: ../Games/pong-game/paddle.py
+===================================================================
+diff --git a/../Games/pong-game/paddle.py b/../Games/pong-game/paddle.py
+deleted file mode 100644
+--- a/../Games/pong-game/paddle.py	(revision cb6ae9f95bc57683db76624a64eae164fb3b0027)
++++ /dev/null	(revision cb6ae9f95bc57683db76624a64eae164fb3b0027)
+@@ -1,21 +0,0 @@
+-from turtle import Turtle
+-
+-class Paddle(Turtle):
+-    def __init__(self, position):
+-        super().__init__()
+-        # Paddle appearance and initial position
+-        self.shape("square")
+-        self.color("white")
+-        self.shapesize(stretch_wid=5, stretch_len=1)
+-        self.penup()
+-        self.goto(position)
+-
+-    def go_up(self):
+-        # Move paddle upwards
+-        new_y = self.ycor() + 20
+-        self.goto(self.xcor(), new_y)
+-
+-    def go_down(self):
+-        # Move paddle downwards
+-        new_y = self.ycor() - 20
+-        self.goto(self.xcor(), new_y)
+Index: ../Games/snake-Game/main.py
+===================================================================
+diff --git a/../Games/snake-Game/main.py b/../Games/snake-Game/main.py
+deleted file mode 100644
+--- a/../Games/snake-Game/main.py	(revision cb6ae9f95bc57683db76624a64eae164fb3b0027)
++++ /dev/null	(revision cb6ae9f95bc57683db76624a64eae164fb3b0027)
+@@ -1,50 +0,0 @@
+-from turtle import Screen
+-from snake import Snake
+-from food import Food
+-from scoreboard import ScoreBoard
+-import time
+-
+-screen = Screen()
+-screen.setup(600, 600)
+-screen.bgcolor("black")
+-screen.title("Snake Game")
+-screen.tracer(0)
+-
+-snake = Snake()
+-food = Food()
+-scoreboard = ScoreBoard()
+-
+-screen.listen()
+-screen.onkey(snake.up, "Up")
+-screen.onkey(snake.down, "Down")
+-screen.onkey(snake.right, "Right")
+-screen.onkey(snake.left, "Left")
+-
+-
+-game_is_on = True
+-while game_is_on:
+-    screen.update()
+-    time.sleep(0.1)
+-    snake.move()
+-
+-# --------- Detect collision with Food and increase score ----------
+-    if snake.head.distance(food) < 15:
+-        food.refresh()
+-        snake.extend()
+-        scoreboard.increase_score()
+-
+-# --------- Detect collision with wall ----------
+-    if snake.head.xcor() > 285 or snake.head.xcor() < -285 or snake.head.ycor() > 285 or snake.head.ycor() < -285:
+-        scoreboard.reset()
+-        snake.reset()
+-
+-# --------- Detect collision with wall ----------
+-    for segment in snake.segments:
+-        if segment == snake.head:
+-            pass
+-        elif snake.head.distance(segment) < 10:
+-            scoreboard.reset()
+-            snake.reset()
+-
+-
+-screen.exitonclick()
+Index: ../india-states-game/.idea/.gitignore
+===================================================================
+diff --git a/../india-states-game/.idea/.gitignore b/../india-states-game/.idea/.gitignore
+deleted file mode 100644
+--- a/../india-states-game/.idea/.gitignore	(revision cb6ae9f95bc57683db76624a64eae164fb3b0027)
++++ /dev/null	(revision cb6ae9f95bc57683db76624a64eae164fb3b0027)
+@@ -1,3 +0,0 @@
+-# Default ignored files
+-/shelf/
+-/workspace.xml
+Index: ../turtle-pro/.idea/inspectionProfiles/profiles_settings.xml
+===================================================================
+diff --git a/../turtle-pro/.idea/inspectionProfiles/profiles_settings.xml b/../turtle-pro/.idea/inspectionProfiles/profiles_settings.xml
+deleted file mode 100644
+--- a/../turtle-pro/.idea/inspectionProfiles/profiles_settings.xml	(revision cb6ae9f95bc57683db76624a64eae164fb3b0027)
++++ /dev/null	(revision cb6ae9f95bc57683db76624a64eae164fb3b0027)
+@@ -1,6 +0,0 @@
+-<component name="InspectionProjectProfileManager">
+-  <settings>
+-    <option name="USE_PROJECT_PROFILE" value="false" />
+-    <version value="1.0" />
+-  </settings>
+-</component>
+\ No newline at end of file
+Index: ../india-states-game/.idea/modules.xml
+===================================================================
+diff --git a/../india-states-game/.idea/modules.xml b/../india-states-game/.idea/modules.xml
+deleted file mode 100644
+--- a/../india-states-game/.idea/modules.xml	(revision cb6ae9f95bc57683db76624a64eae164fb3b0027)
++++ /dev/null	(revision cb6ae9f95bc57683db76624a64eae164fb3b0027)
+@@ -1,8 +0,0 @@
+-<?xml version="1.0" encoding="UTF-8"?>
+-<project version="4">
+-  <component name="ProjectModuleManager">
+-    <modules>
+-      <module fileurl="file://$PROJECT_DIR$/.idea/us-states-game.iml" filepath="$PROJECT_DIR$/.idea/us-states-game.iml" />
+-    </modules>
+-  </component>
+-</project>
+\ No newline at end of file
+Index: ../draw-by-turtle/.idea/.gitignore
+===================================================================
+diff --git a/../draw-by-turtle/.idea/.gitignore b/../draw-by-turtle/.idea/.gitignore
+deleted file mode 100644
+--- a/../draw-by-turtle/.idea/.gitignore	(revision cb6ae9f95bc57683db76624a64eae164fb3b0027)
++++ /dev/null	(revision cb6ae9f95bc57683db76624a64eae164fb3b0027)
+@@ -1,3 +0,0 @@
+-# Default ignored files
+-/shelf/
+-/workspace.xml
+Index: ../turtle-pro/turtle_shapes.py
+===================================================================
+diff --git a/../turtle-pro/turtle_shapes.py b/../turtle-pro/turtle_shapes.py
+deleted file mode 100644
+--- a/../turtle-pro/turtle_shapes.py	(revision cb6ae9f95bc57683db76624a64eae164fb3b0027)
++++ /dev/null	(revision cb6ae9f95bc57683db76624a64eae164fb3b0027)
+@@ -1,43 +0,0 @@
+-from turtle import Turtle, Screen
+-color_lis = ["yellow", "black", "pink", "blue", "grey", "green", "red"]
+-n = 3
+-turtle_obj1 = Turtle()
+-for i in range(7):
+-
+-    for _ in range(n):
+-        turtle_obj1.forward(100)
+-        turtle_obj1.right(360/n)
+-        turtle_obj1.color(color_lis[i])
+-    n += 1
+-# for _ in range(4):
+-#     turtle_obj1.forward(100)
+-#     turtle_obj1.right(90)
+-#     turtle_obj1.color("black")
+-# for _ in range(5):
+-#     turtle_obj1.forward(100)
+-#     turtle_obj1.right(72)
+-#     turtle_obj1.color("pink")
+-# for _ in range(6):
+-#     turtle_obj1.forward(100)
+-#     turtle_obj1.right(60)
+-#     turtle_obj1.color("grey")
+-# for _ in range(7):
+-#     turtle_obj1.forward(100)
+-#     turtle_obj1.right(51.43)
+-#     turtle_obj1.color("blue")
+-# for _ in range(8):
+-#     turtle_obj1.forward(100)
+-#     turtle_obj1.right(45)
+-#     turtle_obj1.color("green")
+-# for _ in range(9):
+-#     turtle_obj1.forward(100)
+-#     turtle_obj1.right(40)
+-#     turtle_obj1.color("red")
+-
+-
+-
+-
+-
+-
+-screen_obj = Screen()
+-screen_obj.exitonclick()
+\ No newline at end of file
+Index: ../india-states-game/.idea/inspectionProfiles/profiles_settings.xml
+===================================================================
+diff --git a/../india-states-game/.idea/inspectionProfiles/profiles_settings.xml b/../india-states-game/.idea/inspectionProfiles/profiles_settings.xml
+deleted file mode 100644
+--- a/../india-states-game/.idea/inspectionProfiles/profiles_settings.xml	(revision cb6ae9f95bc57683db76624a64eae164fb3b0027)
++++ /dev/null	(revision cb6ae9f95bc57683db76624a64eae164fb3b0027)
+@@ -1,6 +0,0 @@
+-<component name="InspectionProjectProfileManager">
+-  <settings>
+-    <option name="USE_PROJECT_PROFILE" value="false" />
+-    <version value="1.0" />
+-  </settings>
+-</component>
+\ No newline at end of file
+Index: ../india-states-game/.idea/us-states-game.iml
+===================================================================
+diff --git a/../india-states-game/.idea/us-states-game.iml b/../india-states-game/.idea/us-states-game.iml
+deleted file mode 100644
+--- a/../india-states-game/.idea/us-states-game.iml	(revision cb6ae9f95bc57683db76624a64eae164fb3b0027)
++++ /dev/null	(revision cb6ae9f95bc57683db76624a64eae164fb3b0027)
+@@ -1,7 +0,0 @@
+-<?xml version="1.0" encoding="UTF-8"?>
+-<module version="4">
+-  <component name="NewModuleRootManager">
+-    <orderEntry type="inheritedJdk" />
+-    <orderEntry type="sourceFolder" forTests="false" />
+-  </component>
+-</module>
+\ No newline at end of file
+Index: ../Games/quiz-game/.idea/Quiz Game.iml
+===================================================================
+diff --git a/../Games/quiz-game/.idea/Quiz Game.iml b/../Games/quiz-game/.idea/Quiz Game.iml
+deleted file mode 100644
+--- a/../Games/quiz-game/.idea/Quiz Game.iml	(revision cb6ae9f95bc57683db76624a64eae164fb3b0027)
++++ /dev/null	(revision cb6ae9f95bc57683db76624a64eae164fb3b0027)
+@@ -1,8 +0,0 @@
+-<?xml version="1.0" encoding="UTF-8"?>
+-<module type="PYTHON_MODULE" version="4">
+-  <component name="NewModuleRootManager">
+-    <content url="file://$MODULE_DIR$" />
+-    <orderEntry type="jdk" jdkName="Python 3.11" jdkType="Python SDK" />
+-    <orderEntry type="sourceFolder" forTests="false" />
+-  </component>
+-</module>
+\ No newline at end of file
+Index: ../Games/snake-Game/.idea/.gitignore
+===================================================================
+diff --git a/../Games/snake-Game/.idea/.gitignore b/../Games/snake-Game/.idea/.gitignore
+deleted file mode 100644
+--- a/../Games/snake-Game/.idea/.gitignore	(revision cb6ae9f95bc57683db76624a64eae164fb3b0027)
++++ /dev/null	(revision cb6ae9f95bc57683db76624a64eae164fb3b0027)
+@@ -1,3 +0,0 @@
+-# Default ignored files
+-/shelf/
+-/workspace.xml
+Index: ../Snake+Project+Code+from+Day+21/.idea/misc.xml
+===================================================================
+diff --git a/../Snake+Project+Code+from+Day+21/.idea/misc.xml b/../Snake+Project+Code+from+Day+21/.idea/misc.xml
+deleted file mode 100644
+--- a/../Snake+Project+Code+from+Day+21/.idea/misc.xml	(revision cb6ae9f95bc57683db76624a64eae164fb3b0027)
++++ /dev/null	(revision cb6ae9f95bc57683db76624a64eae164fb3b0027)
+@@ -1,4 +0,0 @@
+-<?xml version="1.0" encoding="UTF-8"?>
+-<project version="4">
+-  <component name="ProjectRootManager" version="2" project-jdk-name="Python 3.11 (move-turtle)" project-jdk-type="Python SDK" />
+-</project>
+\ No newline at end of file
+Index: ../turtle-cross-the-road/.idea/misc.xml
+===================================================================
+diff --git a/../turtle-cross-the-road/.idea/misc.xml b/../turtle-cross-the-road/.idea/misc.xml
+deleted file mode 100644
+--- a/../turtle-cross-the-road/.idea/misc.xml	(revision cb6ae9f95bc57683db76624a64eae164fb3b0027)
++++ /dev/null	(revision cb6ae9f95bc57683db76624a64eae164fb3b0027)
+@@ -1,7 +0,0 @@
+-<?xml version="1.0" encoding="UTF-8"?>
+-<project version="4">
+-  <component name="Black">
+-    <option name="sdkName" value="Python 3.11 (turtle-cross-the-road)" />
+-  </component>
+-  <component name="ProjectRootManager" version="2" project-jdk-name="Python 3.11 (turtle-cross-the-road)" project-jdk-type="Python SDK" />
+-</project>
+\ No newline at end of file
+Index: ../Games/quiz-game/data.py
+===================================================================
+diff --git a/../Games/quiz-game/data.py b/../Games/quiz-game/data.py
+deleted file mode 100644
+--- a/../Games/quiz-game/data.py	(revision cb6ae9f95bc57683db76624a64eae164fb3b0027)
++++ /dev/null	(revision cb6ae9f95bc57683db76624a64eae164fb3b0027)
+@@ -1,16 +0,0 @@
+-question_data = [
+-    {"text": "A slug's blood is green.", "answer": "True"},
+-    {"text": "The loudest animal is the African Elephant.", "answer": "False"},
+-    {"text": "Approximately one quarter of human bones are in the feet.", "answer": "True"},
+-    {"text": "The total surface area of a human lungs is the size of a football pitch.", "answer": "True"},
+-    {"text": "In West Virginia, USA, if you accidentally hit an animal with your car, you are free to take it home to "
+-             "eat.", "answer": "True"},
+-    {"text": "In London, UK, if you happen to die in the House of Parliament, you are entitled to a state"
+-             " funeral.", "answer": "False"},
+-    {"text": "It is illegal to pee in the Ocean in Portugal.", "answer": "True"},
+-    {"text": "You can lead a cow down stairs but not up stairs.", "answer": "False"},
+-    {"text": "Google was originally called 'Backrub'.", "answer": "True"},
+-    {"text": "Buzz Aldrin's mother's maiden name was 'Moon'.", "answer": "True"},
+-    {"text": "No piece of square dry paper can be folded in half more than 7 times.", "answer": "False"},
+-    {"text": "A few ounces of chocolate can to kill a small dog.", "answer": "True"}
+-]
+Index: ../Games/pong-game/.idea/modules.xml
+===================================================================
+diff --git a/../Games/pong-game/.idea/modules.xml b/../Games/pong-game/.idea/modules.xml
+deleted file mode 100644
+--- a/../Games/pong-game/.idea/modules.xml	(revision cb6ae9f95bc57683db76624a64eae164fb3b0027)
++++ /dev/null	(revision cb6ae9f95bc57683db76624a64eae164fb3b0027)
+@@ -1,8 +0,0 @@
+-<?xml version="1.0" encoding="UTF-8"?>
+-<project version="4">
+-  <component name="ProjectModuleManager">
+-    <modules>
+-      <module fileurl="file://$PROJECT_DIR$/.idea/pong-game.iml" filepath="$PROJECT_DIR$/.idea/pong-game.iml" />
+-    </modules>
+-  </component>
+-</project>
+\ No newline at end of file
+Index: ../Games/pong-game/ball.py
+===================================================================
+diff --git a/../Games/pong-game/ball.py b/../Games/pong-game/ball.py
+deleted file mode 100644
+--- a/../Games/pong-game/ball.py	(revision cb6ae9f95bc57683db76624a64eae164fb3b0027)
++++ /dev/null	(revision cb6ae9f95bc57683db76624a64eae164fb3b0027)
+@@ -1,38 +0,0 @@
+-from turtle import Turtle
+-
+-class Ball(Turtle):
+-    def __init__(self):
+-        super().__init__()
+-        # Ball appearance and initial position
+-        self.shapesize(stretch_wid=1, stretch_len=1)
+-        self.color("white")
+-        self.shape("square")
+-        self.penup()
+-        self.goto(0, 0)
+-        # Ball movement attributes
+-        self.x_move = 10
+-        self.y_move = 10
+-        self.ball_speed = 0.1  # Initial speed
+-
+-    def move(self):
+-        # Move the ball
+-        new_x = self.xcor() + self.x_move
+-        new_y = self.ycor() + self.y_move
+-        self.goto(new_x, new_y)
+-
+-    def bounce_y(self):
+-        # Change ball's y direction upon collision with the wall
+-        self.y_move *= -1
+-
+-    def bounce_x(self):
+-        # Change ball's x direction upon collision with a paddle
+-        self.x_move *= -1
+-        # Increase speed after each paddle collision
+-        self.ball_speed *= 0.9
+-
+-    def reset_position(self):
+-        # Reset ball position to the center
+-        self.goto(0, 0)
+-        # Reset ball speed and direction
+-        self.ball_speed = 0.1
+-        self.bounce_x()
+Index: ../Games/snake-Game/food.py
+===================================================================
+diff --git a/../Games/snake-Game/food.py b/../Games/snake-Game/food.py
+deleted file mode 100644
+--- a/../Games/snake-Game/food.py	(revision cb6ae9f95bc57683db76624a64eae164fb3b0027)
++++ /dev/null	(revision cb6ae9f95bc57683db76624a64eae164fb3b0027)
+@@ -1,18 +0,0 @@
+-import random
+-from turtle import Turtle
+-
+-
+-class Food(Turtle):
+-    def __init__(self):
+-        super().__init__()
+-        self.shape("circle")
+-        self.penup()
+-        self.shapesize(stretch_len=0.5, stretch_wid=0.5)
+-        self.color("yellow")
+-        self.speed("fastest")
+-        self.refresh()
+-
+-    def refresh(self):
+-        random_x = random.randint(-280, 280)
+-        random_y = random.randint(-280, 260)
+-        self.goto(random_x, random_y)
+Index: ../turtle-cross-the-road/.idea/turtle-cross-the-road.iml
+===================================================================
+diff --git a/../turtle-cross-the-road/.idea/turtle-cross-the-road.iml b/../turtle-cross-the-road/.idea/turtle-cross-the-road.iml
+deleted file mode 100644
+--- a/../turtle-cross-the-road/.idea/turtle-cross-the-road.iml	(revision cb6ae9f95bc57683db76624a64eae164fb3b0027)
++++ /dev/null	(revision cb6ae9f95bc57683db76624a64eae164fb3b0027)
+@@ -1,10 +0,0 @@
+-<?xml version="1.0" encoding="UTF-8"?>
+-<module type="PYTHON_MODULE" version="4">
+-  <component name="NewModuleRootManager">
+-    <content url="file://$MODULE_DIR$">
+-      <excludeFolder url="file://$MODULE_DIR$/.venv" />
+-    </content>
+-    <orderEntry type="inheritedJdk" />
+-    <orderEntry type="sourceFolder" forTests="false" />
+-  </component>
+-</module>
+\ No newline at end of file
+Index: ../turtle-cross-the-road/main.py
+===================================================================
+diff --git a/../turtle-cross-the-road/main.py b/../turtle-cross-the-road/main.py
+deleted file mode 100644
+--- a/../turtle-cross-the-road/main.py	(revision cb6ae9f95bc57683db76624a64eae164fb3b0027)
++++ /dev/null	(revision cb6ae9f95bc57683db76624a64eae164fb3b0027)
+@@ -1,39 +0,0 @@
+-import time
+-from turtle import Screen
+-from player import Player
+-from car_manager import CarManager
+-from scoreboard import Scoreboard
+-
+-screen = Screen()
+-screen.setup(width=600, height=600)
+-screen.tracer(0)
+-
+-player = Player()
+-car_manager = CarManager()
+-scoreboard = Scoreboard()
+-
+-screen.listen()
+-screen.onkey(player.go_up, "Up")
+-
+-game_is_on = True
+-while game_is_on:
+-    time.sleep(0.1)
+-    screen.update()
+-
+-    car_manager.create_cars()
+-    car_manager.move_cars()
+-
+-# ---------- When turtle touch upper side == level finish ---------- #
+-    if player.ycor() > 285:
+-        player.new_level()
+-        scoreboard.next_level()
+-        car_manager.level_up()
+-
+-# ---------- Detect turtle's collision with car ---------- #
+-    for car in car_manager.all_cars:
+-        if car.distance(player) < 20:
+-            game_is_on = False
+-            scoreboard.game_end()
+-
+-
+-screen.exitonclick()
+Index: ../turtle-pro/.idea/misc.xml
+===================================================================
+diff --git a/../turtle-pro/.idea/misc.xml b/../turtle-pro/.idea/misc.xml
+deleted file mode 100644
+--- a/../turtle-pro/.idea/misc.xml	(revision cb6ae9f95bc57683db76624a64eae164fb3b0027)
++++ /dev/null	(revision cb6ae9f95bc57683db76624a64eae164fb3b0027)
+@@ -1,7 +0,0 @@
+-<?xml version="1.0" encoding="UTF-8"?>
+-<project version="4">
+-  <component name="Black">
+-    <option name="sdkName" value="Python 3.11" />
+-  </component>
+-  <component name="ProjectRootManager" version="2" project-jdk-name="Python 3.11" project-jdk-type="Python SDK" />
+-</project>
+\ No newline at end of file
+Index: ../Games/snake-Game/.idea/snake-Game.iml
+===================================================================
+diff --git a/../Games/snake-Game/.idea/snake-Game.iml b/../Games/snake-Game/.idea/snake-Game.iml
+deleted file mode 100644
+--- a/../Games/snake-Game/.idea/snake-Game.iml	(revision cb6ae9f95bc57683db76624a64eae164fb3b0027)
++++ /dev/null	(revision cb6ae9f95bc57683db76624a64eae164fb3b0027)
+@@ -1,10 +0,0 @@
+-<?xml version="1.0" encoding="UTF-8"?>
+-<module type="PYTHON_MODULE" version="4">
+-  <component name="NewModuleRootManager">
+-    <content url="file://$MODULE_DIR$">
+-      <excludeFolder url="file://$MODULE_DIR$/.venv" />
+-    </content>
+-    <orderEntry type="inheritedJdk" />
+-    <orderEntry type="sourceFolder" forTests="false" />
+-  </component>
+-</module>
+\ No newline at end of file
+Index: ../Snake+Project+Code+from+Day+21/.idea/.gitignore
+===================================================================
+diff --git a/../Snake+Project+Code+from+Day+21/.idea/.gitignore b/../Snake+Project+Code+from+Day+21/.idea/.gitignore
+deleted file mode 100644
+--- a/../Snake+Project+Code+from+Day+21/.idea/.gitignore	(revision cb6ae9f95bc57683db76624a64eae164fb3b0027)
++++ /dev/null	(revision cb6ae9f95bc57683db76624a64eae164fb3b0027)
+@@ -1,3 +0,0 @@
+-# Default ignored files
+-/shelf/
+-/workspace.xml
+Index: ../draw-by-turtle/main.py
+===================================================================
+diff --git a/../draw-by-turtle/main.py b/../draw-by-turtle/main.py
+deleted file mode 100644
+--- a/../draw-by-turtle/main.py	(revision cb6ae9f95bc57683db76624a64eae164fb3b0027)
++++ /dev/null	(revision cb6ae9f95bc57683db76624a64eae164fb3b0027)
+@@ -1,68 +0,0 @@
+-from turtle import Turtle, Screen
+-import tkinter as tk
+-from tkinter import messagebox
+-
+-t_Obj = Turtle()
+-s_Obj = Screen()
+-
+-# Function to draw the instructions
+-def draw_instructions():
+-    panel = Turtle(visible=False)
+-    panel.speed("fastest")
+-    panel.penup()
+-    panel.goto(0, s_Obj.window_height() // 2 - 20)
+-    panel.write("Instructions:", align="center", font=("Arial", 14, "bold"))
+-    panel.goto(-200, s_Obj.window_height() // 2 - 40)
+-    panel.write("Press 'e' to move forward (↑)   Press 'x' to move backward (↓)", align="left", font=("Arial", 12))
+-    panel.goto(-200, s_Obj.window_height() // 2 - 60)
+-    panel.write("Press 'd' to turn right (→)      Press 's' to turn left (←)", align="left", font=("Arial", 12))
+-    panel.goto(0, s_Obj.window_height() // 2 - 80)
+-    panel.write("Press 'c' to clear the screen", align="center", font=("Arial", 12))
+-
+-# Function to move the turtle forward
+-def move_forward():
+-    t_Obj.forward(10)
+-
+-# Function to move the turtle backward
+-def move_backward():
+-    t_Obj.backward(10)
+-
+-# Function to turn the turtle right
+-def move_right():
+-    new_heading = t_Obj.heading() + 10
+-    t_Obj.setheading(new_heading)
+-
+-# Function to turn the turtle left
+-def move_left():
+-    new_heading = t_Obj.heading() - 10
+-    t_Obj.setheading(new_heading)
+-
+-# Function to clear the screen
+-def clear_screen():
+-    t_Obj.clear()
+-    t_Obj.penup()
+-    t_Obj.home()
+-    t_Obj.pendown()
+-
+-# Function to confirm exit
+-def confirm_exit():
+-    confirm = tk.messagebox.askyesno("Exit", "Do you really want to exit?")
+-    if confirm:
+-        s_Obj.bye()
+-
+-# Set up key listeners
+-s_Obj.listen()
+-s_Obj.onkey(move_forward, "e")
+-s_Obj.onkey(move_backward, "x")
+-s_Obj.onkey(move_right, "d")
+-s_Obj.onkey(move_left, "s")
+-s_Obj.onkey(clear_screen, "c")
+-
+-# Draw instructions
+-draw_instructions()
+-
+-# Set up window closing listener
+-s_Obj.onkeypress(confirm_exit, "Escape")
+-
+-# Exit on click
+-s_Obj.mainloop()
+Index: ../turtle-cross-the-road/car_manager.py
+===================================================================
+diff --git a/../turtle-cross-the-road/car_manager.py b/../turtle-cross-the-road/car_manager.py
+deleted file mode 100644
+--- a/../turtle-cross-the-road/car_manager.py	(revision cb6ae9f95bc57683db76624a64eae164fb3b0027)
++++ /dev/null	(revision cb6ae9f95bc57683db76624a64eae164fb3b0027)
+@@ -1,30 +0,0 @@
+-from turtle import Turtle
+-import random
+-
+-COLORS = ["red", "orange", "yellow", "green", "blue", "purple"]
+-STARTING_MOVE_DISTANCE = 5
+-MOVE_INCREMENT = 5
+-
+-
+-class CarManager():
+-    def __init__(self):
+-        self.all_cars = []
+-        self.car_speed = STARTING_MOVE_DISTANCE
+-
+-    def create_cars(self):
+-        random_chance = random.randint(1, 6)
+-        if random_chance == 1:
+-            new_car = Turtle("square")
+-            new_car.shapesize(stretch_wid=1, stretch_len=2)
+-            new_car.penup()
+-            new_car.color(random.choice(COLORS))
+-            random_y = random.randint(-250, 250)
+-            new_car.goto(300, random_y)
+-            self.all_cars.append(new_car)
+-
+-    def move_cars(self):
+-        for car in self.all_cars:
+-            car.backward(self.car_speed)
+-
+-    def level_up(self):
+-        self.car_speed += MOVE_INCREMENT
+Index: ../Snake+Project+Code+from+Day+21/.idea/Snake+Project+Code+from+Day+21.iml
+===================================================================
+diff --git a/../Snake+Project+Code+from+Day+21/.idea/Snake+Project+Code+from+Day+21.iml b/../Snake+Project+Code+from+Day+21/.idea/Snake+Project+Code+from+Day+21.iml
+deleted file mode 100644
+--- a/../Snake+Project+Code+from+Day+21/.idea/Snake+Project+Code+from+Day+21.iml	(revision cb6ae9f95bc57683db76624a64eae164fb3b0027)
++++ /dev/null	(revision cb6ae9f95bc57683db76624a64eae164fb3b0027)
+@@ -1,8 +0,0 @@
+-<?xml version="1.0" encoding="UTF-8"?>
+-<module type="PYTHON_MODULE" version="4">
+-  <component name="NewModuleRootManager">
+-    <content url="file://$MODULE_DIR$" />
+-    <orderEntry type="inheritedJdk" />
+-    <orderEntry type="sourceFolder" forTests="false" />
+-  </component>
+-</module>
+\ No newline at end of file
+Index: ../Turtle/.idea/workspace.xml
+===================================================================
+diff --git a/../Turtle/.idea/workspace.xml b/../Turtle/.idea/workspace.xml
+deleted file mode 100644
+--- a/../Turtle/.idea/workspace.xml	(revision cb6ae9f95bc57683db76624a64eae164fb3b0027)
++++ /dev/null	(revision cb6ae9f95bc57683db76624a64eae164fb3b0027)
+@@ -1,49 +0,0 @@
+-<?xml version="1.0" encoding="UTF-8"?>
+-<project version="4">
+-  <component name="AutoImportSettings">
+-    <option name="autoReloadType" value="SELECTIVE" />
+-  </component>
+-  <component name="ChangeListManager">
+-    <list default="true" id="02874fc7-9c1b-4fb3-9880-99967097b042" name="Changes" comment="" />
+-    <option name="SHOW_DIALOG" value="false" />
+-    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+-    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+-    <option name="LAST_RESOLUTION" value="IGNORE" />
+-  </component>
+-  <component name="ProjectColorInfo">{
+-  &quot;associatedIndex&quot;: 7
+-}</component>
+-  <component name="ProjectId" id="2Zm16VKwIhNbhg3IMOakvOU2EP7" />
+-  <component name="ProjectViewState">
+-    <option name="hideEmptyMiddlePackages" value="true" />
+-    <option name="showLibraryContents" value="true" />
+-  </component>
+-  <component name="PropertiesComponent"><![CDATA[{
+-  "keyToString": {
+-    "Python.turtle_random_walk.executor": "Run",
+-    "Python.turtle_spirograph.executor": "Run",
+-    "Python.turtle_square.executor": "Run",
+-    "RunOnceActivity.OpenProjectViewOnStart": "true",
+-    "RunOnceActivity.ShowReadmeOnStart": "true",
+-    "last_opened_file_path": "P:/Programming/Python/Python Project Udemy/hirst-painting-start"
+-  }
+-}]]></component>
+-  <component name="SharedIndexes">
+-    <attachedChunks>
+-      <set>
+-        <option value="bundled-python-sdk-7a29c1521ef0-d3b881c8e49f-com.jetbrains.pycharm.community.sharedIndexes.bundled-PC-233.11799.298" />
+-      </set>
+-    </attachedChunks>
+-  </component>
+-  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+-  <component name="TaskManager">
+-    <task active="true" id="Default" summary="Default task">
+-      <changelist id="02874fc7-9c1b-4fb3-9880-99967097b042" name="Changes" comment="" />
+-      <created>1703012265789</created>
+-      <option name="number" value="Default" />
+-      <option name="presentableId" value="Default" />
+-      <updated>1703012265789</updated>
+-    </task>
+-    <servers />
+-  </component>
+-</project>
+\ No newline at end of file
+Index: ../Games/snake-Game/scoreboard.py
+===================================================================
+diff --git a/../Games/snake-Game/scoreboard.py b/../Games/snake-Game/scoreboard.py
+deleted file mode 100644
+--- a/../Games/snake-Game/scoreboard.py	(revision cb6ae9f95bc57683db76624a64eae164fb3b0027)
++++ /dev/null	(revision cb6ae9f95bc57683db76624a64eae164fb3b0027)
+@@ -1,33 +0,0 @@
+-from turtle import Turtle
+-ALIGNMENT = "center"
+-FONT = ("Courier", 15, "bold")
+-
+-
+-class ScoreBoard(Turtle):
+-    def __init__(self):
+-        super().__init__()
+-        self.score = 0
+-        with open("data.txt") as data:
+-            self.high_score = int(data.read())
+-        self.color("white")
+-        self.penup()
+-        self.goto(0, 270)
+-        self.hideturtle()
+-        self.update_score()
+-
+-    def update_score(self):
+-        self.clear()
+-        self.write(f"Score: {self.score}  High Score:{self.high_score}", align=ALIGNMENT, font=FONT)
+-
+-    def reset(self):
+-        if self.score > self.high_score:
+-            self.high_score = self.score
+-            with open("data.txt", mode="w") as data:
+-                data.write(f"{self.high_score}")
+-        self.score = 0
+-        self.update_score()
+-
+-    def increase_score(self):
+-        self.score += 1
+-        self.update_score()
+-
+Index: ../Snake+Project+Code+from+Day+21/.idea/modules.xml
+===================================================================
+diff --git a/../Snake+Project+Code+from+Day+21/.idea/modules.xml b/../Snake+Project+Code+from+Day+21/.idea/modules.xml
+deleted file mode 100644
+--- a/../Snake+Project+Code+from+Day+21/.idea/modules.xml	(revision cb6ae9f95bc57683db76624a64eae164fb3b0027)
++++ /dev/null	(revision cb6ae9f95bc57683db76624a64eae164fb3b0027)
+@@ -1,8 +0,0 @@
+-<?xml version="1.0" encoding="UTF-8"?>
+-<project version="4">
+-  <component name="ProjectModuleManager">
+-    <modules>
+-      <module fileurl="file://$PROJECT_DIR$/.idea/Snake+Project+Code+from+Day+21.iml" filepath="$PROJECT_DIR$/.idea/Snake+Project+Code+from+Day+21.iml" />
+-    </modules>
+-  </component>
+-</project>
+\ No newline at end of file
+Index: ../Games/quiz-game/.idea/inspectionProfiles/profiles_settings.xml
+===================================================================
+diff --git a/../Games/quiz-game/.idea/inspectionProfiles/profiles_settings.xml b/../Games/quiz-game/.idea/inspectionProfiles/profiles_settings.xml
+deleted file mode 100644
+--- a/../Games/quiz-game/.idea/inspectionProfiles/profiles_settings.xml	(revision cb6ae9f95bc57683db76624a64eae164fb3b0027)
++++ /dev/null	(revision cb6ae9f95bc57683db76624a64eae164fb3b0027)
+@@ -1,6 +0,0 @@
+-<component name="InspectionProjectProfileManager">
+-  <settings>
+-    <option name="USE_PROJECT_PROFILE" value="false" />
+-    <version value="1.0" />
+-  </settings>
+-</component>
+\ No newline at end of file
+Index: ../Games/quiz-game/main.py
+===================================================================
+diff --git a/../Games/quiz-game/main.py b/../Games/quiz-game/main.py
+deleted file mode 100644
+--- a/../Games/quiz-game/main.py	(revision cb6ae9f95bc57683db76624a64eae164fb3b0027)
++++ /dev/null	(revision cb6ae9f95bc57683db76624a64eae164fb3b0027)
+@@ -1,18 +0,0 @@
+-from question_model import Question
+-from data import question_data
+-from quiz_game import QuizBrain
+-
+-question_bank = []
+-for que in question_data:
+-    question_text = que["text"]
+-    question_answer = que["answer"]
+-    new_que = Question(question_text, question_answer)
+-    question_bank.append(new_que)
+-
+-quiz = QuizBrain(question_bank)
+-
+-while quiz.has_new_que():   # if quiz still has que remaining..
+-    quiz.next_que()
+-
+-print("You've completed the quiz..")
+-print(f"Your final score: {quiz.score}/{quiz.question_num}")
+\ No newline at end of file
+Index: ../turtle-cross-the-road/.idea/inspectionProfiles/profiles_settings.xml
+===================================================================
+diff --git a/../turtle-cross-the-road/.idea/inspectionProfiles/profiles_settings.xml b/../turtle-cross-the-road/.idea/inspectionProfiles/profiles_settings.xml
+deleted file mode 100644
+--- a/../turtle-cross-the-road/.idea/inspectionProfiles/profiles_settings.xml	(revision cb6ae9f95bc57683db76624a64eae164fb3b0027)
++++ /dev/null	(revision cb6ae9f95bc57683db76624a64eae164fb3b0027)
+@@ -1,6 +0,0 @@
+-<component name="InspectionProjectProfileManager">
+-  <settings>
+-    <option name="USE_PROJECT_PROFILE" value="false" />
+-    <version value="1.0" />
+-  </settings>
+-</component>
+\ No newline at end of file
+Index: ../draw-by-turtle/.idea/move-turtle.iml
+===================================================================
+diff --git a/../draw-by-turtle/.idea/move-turtle.iml b/../draw-by-turtle/.idea/move-turtle.iml
+deleted file mode 100644
+--- a/../draw-by-turtle/.idea/move-turtle.iml	(revision cb6ae9f95bc57683db76624a64eae164fb3b0027)
++++ /dev/null	(revision cb6ae9f95bc57683db76624a64eae164fb3b0027)
+@@ -1,10 +0,0 @@
+-<?xml version="1.0" encoding="UTF-8"?>
+-<module type="PYTHON_MODULE" version="4">
+-  <component name="NewModuleRootManager">
+-    <content url="file://$MODULE_DIR$">
+-      <excludeFolder url="file://$MODULE_DIR$/.venv" />
+-    </content>
+-    <orderEntry type="inheritedJdk" />
+-    <orderEntry type="sourceFolder" forTests="false" />
+-  </component>
+-</module>
+\ No newline at end of file
+Index: ../draw-by-turtle/.idea/modules.xml
+===================================================================
+diff --git a/../draw-by-turtle/.idea/modules.xml b/../draw-by-turtle/.idea/modules.xml
+deleted file mode 100644
+--- a/../draw-by-turtle/.idea/modules.xml	(revision cb6ae9f95bc57683db76624a64eae164fb3b0027)
++++ /dev/null	(revision cb6ae9f95bc57683db76624a64eae164fb3b0027)
+@@ -1,8 +0,0 @@
+-<?xml version="1.0" encoding="UTF-8"?>
+-<project version="4">
+-  <component name="ProjectModuleManager">
+-    <modules>
+-      <module fileurl="file://$PROJECT_DIR$/.idea/move-turtle.iml" filepath="$PROJECT_DIR$/.idea/move-turtle.iml" />
+-    </modules>
+-  </component>
+-</project>
+\ No newline at end of file
+Index: ../Games/quiz-game/.idea/misc.xml
+===================================================================
+diff --git a/../Games/quiz-game/.idea/misc.xml b/../Games/quiz-game/.idea/misc.xml
+deleted file mode 100644
+--- a/../Games/quiz-game/.idea/misc.xml	(revision cb6ae9f95bc57683db76624a64eae164fb3b0027)
++++ /dev/null	(revision cb6ae9f95bc57683db76624a64eae164fb3b0027)
+@@ -1,7 +0,0 @@
+-<?xml version="1.0" encoding="UTF-8"?>
+-<project version="4">
+-  <component name="Black">
+-    <option name="sdkName" value="Python 3.11 (data)" />
+-  </component>
+-  <component name="ProjectRootManager" version="2" project-jdk-name="Python 3.11" project-jdk-type="Python SDK" />
+-</project>
+\ No newline at end of file
+Index: ../Games/turtle-race/.idea/turtle-race.iml
+===================================================================
+diff --git a/../Games/turtle-race/.idea/turtle-race.iml b/../Games/turtle-race/.idea/turtle-race.iml
+deleted file mode 100644
+--- a/../Games/turtle-race/.idea/turtle-race.iml	(revision cb6ae9f95bc57683db76624a64eae164fb3b0027)
++++ /dev/null	(revision cb6ae9f95bc57683db76624a64eae164fb3b0027)
+@@ -1,10 +0,0 @@
+-<?xml version="1.0" encoding="UTF-8"?>
+-<module type="PYTHON_MODULE" version="4">
+-  <component name="NewModuleRootManager">
+-    <content url="file://$MODULE_DIR$">
+-      <excludeFolder url="file://$MODULE_DIR$/.venv" />
+-    </content>
+-    <orderEntry type="inheritedJdk" />
+-    <orderEntry type="sourceFolder" forTests="false" />
+-  </component>
+-</module>
+\ No newline at end of file
+Index: ../Games/turtle-race/.idea/.gitignore
+===================================================================
+diff --git a/../Games/turtle-race/.idea/.gitignore b/../Games/turtle-race/.idea/.gitignore
+deleted file mode 100644
+--- a/../Games/turtle-race/.idea/.gitignore	(revision cb6ae9f95bc57683db76624a64eae164fb3b0027)
++++ /dev/null	(revision cb6ae9f95bc57683db76624a64eae164fb3b0027)
+@@ -1,3 +0,0 @@
+-# Default ignored files
+-/shelf/
+-/workspace.xml
+Index: ../Games/turtle-race/.idea/modules.xml
+===================================================================
+diff --git a/../Games/turtle-race/.idea/modules.xml b/../Games/turtle-race/.idea/modules.xml
+deleted file mode 100644
+--- a/../Games/turtle-race/.idea/modules.xml	(revision cb6ae9f95bc57683db76624a64eae164fb3b0027)
++++ /dev/null	(revision cb6ae9f95bc57683db76624a64eae164fb3b0027)
+@@ -1,8 +0,0 @@
+-<?xml version="1.0" encoding="UTF-8"?>
+-<project version="4">
+-  <component name="ProjectModuleManager">
+-    <modules>
+-      <module fileurl="file://$PROJECT_DIR$/.idea/turtle-race.iml" filepath="$PROJECT_DIR$/.idea/turtle-race.iml" />
+-    </modules>
+-  </component>
+-</project>
+\ No newline at end of file
+Index: ../Games/pong-game/.idea/misc.xml
+===================================================================
+diff --git a/../Games/pong-game/.idea/misc.xml b/../Games/pong-game/.idea/misc.xml
+deleted file mode 100644
+--- a/../Games/pong-game/.idea/misc.xml	(revision cb6ae9f95bc57683db76624a64eae164fb3b0027)
++++ /dev/null	(revision cb6ae9f95bc57683db76624a64eae164fb3b0027)
+@@ -1,7 +0,0 @@
+-<?xml version="1.0" encoding="UTF-8"?>
+-<project version="4">
+-  <component name="Black">
+-    <option name="sdkName" value="Python 3.11 (pong-game)" />
+-  </component>
+-  <component name="ProjectRootManager" version="2" project-jdk-name="Python 3.11 (pong-game)" project-jdk-type="Python SDK" />
+-</project>
+\ No newline at end of file
+Index: ../Games/coffee-machine/CoffeeMachine.py
+===================================================================
+diff --git a/../Games/coffee-machine/CoffeeMachine.py b/../Games/coffee-machine/CoffeeMachine.py
+deleted file mode 100644
+--- a/../Games/coffee-machine/CoffeeMachine.py	(revision cb6ae9f95bc57683db76624a64eae164fb3b0027)
++++ /dev/null	(revision cb6ae9f95bc57683db76624a64eae164fb3b0027)
+@@ -1,94 +0,0 @@
+-#TODO: 1] Check resources sufficient to make order..
+-
+-MENU = {
+-    "espresso": {
+-        "ingredients": {
+-            "water": 50,
+-            "coffee": 18,
+-        },
+-        "cost": 1.5,
+-    },
+-    "latte": {
+-        "ingredients": {
+-            "water": 200,
+-            "milk": 150,
+-            "coffee": 24,
+-        },
+-        "cost": 2.5,
+-    },
+-    "cappuccino": {
+-        "ingredients": {
+-            "water": 250,
+-            "milk": 100,
+-            "coffee": 24,
+-        },
+-        "cost": 3.0,
+-    }
+-}
+-resources = {
+-    "water": 150,
+-    "milk":  400,
+-    "coffee": 200
+-}
+-
+-#TODO: 2] Print report of all coffee machine data..
+-
+-money = 0
+-on_Machine = True
+-
+-
+-def is_sufficient_resources(order_ingredients):
+-    """Return True if order can be made either False"""
+-    for item in order_ingredients:
+-        if order_ingredients[item]>=resources[item]:
+-            print(f"Sorry there is not enough {item} to make your drink..")
+-            return False
+-    return True
+-
+-
+-def coins_process():
+-    """Return the total calculated from coins inserted"""
+-    print("Please insert coins.")
+-    total = int(input("How many Quarters: ")) *0.25
+-    total += int(input("How many Dimes: ")) *0.1
+-    total += int(input("How many Nickels: ")) *0.05
+-    total += int(input("How many Pennies: ")) *0.01
+-    return total
+-
+-
+-def is_successful_transaction(received_money,cost_of_drink):
+-    """Return True if Money is sufficient either False"""
+-    if received_money >= cost_of_drink:
+-        change = received_money - cost_of_drink
+-        print(f"Here is your ${change} in change.")
+-        global money
+-        money += cost_of_drink
+-        return True
+-    else:
+-        print("Sorry!, But that's not enough money.. Money refunded.")
+-        return False
+-
+-
+-def make_coffee(order_name, order_ingredients):
+-    """Deduct the required ingredients from the resources."""
+-    for item in order_ingredients:
+-        resources[item] -= order_ingredients[item]
+-    print(f"Here is your{order_name} ☕..")
+-
+-
+-while on_Machine:
+-    choice = input("What would you like to drink ? (espresso/latte/cappuccino): ")
+-    if choice== "off":
+-        on_Machine= False
+-    elif choice == "report":
+-        print(f"Water: {resources['water']}ml ")
+-        print(f"Milk: {resources['milk']}ml")
+-        print(f"Coffee: {resources['coffee']}gm ")
+-        print(f"Money: ${money} ")
+-    else:
+-        drink = MENU[choice]
+-        if is_sufficient_resources(drink["ingredients"]):
+-            payment = coins_process()
+-            if is_successful_transaction(payment, drink["cost"]):
+-                make_coffee(choice, drink["ingredients"])
+-
+Index: ../Snake+Project+Code+from+Day+21/main.py
+===================================================================
+diff --git a/../Snake+Project+Code+from+Day+21/main.py b/../Snake+Project+Code+from+Day+21/main.py
+deleted file mode 100644
+--- a/../Snake+Project+Code+from+Day+21/main.py	(revision cb6ae9f95bc57683db76624a64eae164fb3b0027)
++++ /dev/null	(revision cb6ae9f95bc57683db76624a64eae164fb3b0027)
+@@ -1,52 +0,0 @@
+-from turtle import Screen
+-from snake import Snake
+-from food import Food
+-from scoreboard import Scoreboard
+-import time
+-
+-screen = Screen()
+-screen.setup(width=600, height=600)
+-screen.bgcolor("black")
+-screen.title("My Snake Game")
+-screen.tracer(0)
+-
+-snake = Snake()
+-food = Food()
+-scoreboard = Scoreboard()
+-
+-screen.listen()
+-screen.onkey(snake.up, "Up")
+-screen.onkey(snake.down, "Down")
+-screen.onkey(snake.left, "Left")
+-screen.onkey(snake.right, "Right")
+-
+-game_is_on = True
+-while game_is_on:
+-    screen.update()
+-    time.sleep(0.1)
+-    snake.move()
+-
+-    #Detect collision with food.
+-    if snake.head.distance(food) < 15:
+-        food.refresh()
+-        snake.extend()
+-        scoreboard.increase_score()
+-
+-    #Detect collision with wall.
+-    if snake.head.xcor() > 280 or snake.head.xcor() < -280 or snake.head.ycor() > 280 or snake.head.ycor() < -280:
+-        game_is_on = False
+-        scoreboard.game_over()
+-
+-    #Detect collision with tail.
+-    for segment in snake.segments:
+-        if segment == snake.head:
+-            pass
+-        elif snake.head.distance(segment) < 10:
+-            game_is_on = False
+-            scoreboard.game_over()
+-
+-
+-
+-
+-
+-screen.exitonclick()
+Index: ../Games/quiz-game/quiz_game.py
+===================================================================
+diff --git a/../Games/quiz-game/quiz_game.py b/../Games/quiz-game/quiz_game.py
+deleted file mode 100644
+--- a/../Games/quiz-game/quiz_game.py	(revision cb6ae9f95bc57683db76624a64eae164fb3b0027)
++++ /dev/null	(revision cb6ae9f95bc57683db76624a64eae164fb3b0027)
+@@ -1,25 +0,0 @@
+-class QuizBrain:
+-    def __init__(self, lis):
+-        self.question_num = 0
+-        self.question_list = lis
+-        self.score = 0
+-
+-    def has_new_que(self):
+-        return self.question_num < len(self.question_list)
+-
+-    def next_que(self):
+-        current_que = self.question_list[self.question_num]
+-        self.question_num += 1
+-        user_answer = input(f"Q.{self.question_num}: {current_que.text}(True/False): ")
+-        self.check_answer(user_answer, current_que.answer)
+-
+-    def check_answer(self, user_answer, correct_answer):
+-        if user_answer.lower() == correct_answer.lower():
+-            print("You got it...Its right.")
+-            self.score += 1
+-        else:
+-            print("Ohh.! That's Wrong.")
+-            print(f"The correct answer is: {correct_answer}.")
+-        print(f"Your current score is:{self.score}/{self.question_num}. ")
+-        print("-----------------------------------------------------------------------------------------------------------------")
+-        print()
+Index: ../Games/turtle-race/.idea/misc.xml
+===================================================================
+diff --git a/../Games/turtle-race/.idea/misc.xml b/../Games/turtle-race/.idea/misc.xml
+deleted file mode 100644
+--- a/../Games/turtle-race/.idea/misc.xml	(revision cb6ae9f95bc57683db76624a64eae164fb3b0027)
++++ /dev/null	(revision cb6ae9f95bc57683db76624a64eae164fb3b0027)
+@@ -1,7 +0,0 @@
+-<?xml version="1.0" encoding="UTF-8"?>
+-<project version="4">
+-  <component name="Black">
+-    <option name="sdkName" value="Python 3.11 (turtle-race)" />
+-  </component>
+-  <component name="ProjectRootManager" version="2" project-jdk-name="Python 3.11 (turtle-race)" project-jdk-type="Python SDK" />
+-</project>
+\ No newline at end of file
+Index: ../Snake+Project+Code+from+Day+21/.idea/inspectionProfiles/profiles_settings.xml
+===================================================================
+diff --git a/../Snake+Project+Code+from+Day+21/.idea/inspectionProfiles/profiles_settings.xml b/../Snake+Project+Code+from+Day+21/.idea/inspectionProfiles/profiles_settings.xml
+deleted file mode 100644
+--- a/../Snake+Project+Code+from+Day+21/.idea/inspectionProfiles/profiles_settings.xml	(revision cb6ae9f95bc57683db76624a64eae164fb3b0027)
++++ /dev/null	(revision cb6ae9f95bc57683db76624a64eae164fb3b0027)
+@@ -1,6 +0,0 @@
+-<component name="InspectionProjectProfileManager">
+-  <settings>
+-    <option name="USE_PROJECT_PROFILE" value="false" />
+-    <version value="1.0" />
+-  </settings>
+-</component>
+\ No newline at end of file
+Index: ../Games/snake-Game/.idea/inspectionProfiles/profiles_settings.xml
+===================================================================
+diff --git a/../Games/snake-Game/.idea/inspectionProfiles/profiles_settings.xml b/../Games/snake-Game/.idea/inspectionProfiles/profiles_settings.xml
+deleted file mode 100644
+--- a/../Games/snake-Game/.idea/inspectionProfiles/profiles_settings.xml	(revision cb6ae9f95bc57683db76624a64eae164fb3b0027)
++++ /dev/null	(revision cb6ae9f95bc57683db76624a64eae164fb3b0027)
+@@ -1,6 +0,0 @@
+-<component name="InspectionProjectProfileManager">
+-  <settings>
+-    <option name="USE_PROJECT_PROFILE" value="false" />
+-    <version value="1.0" />
+-  </settings>
+-</component>
+\ No newline at end of file
+Index: ../hirst-painting-start/.idea/misc.xml
+===================================================================
+diff --git a/../hirst-painting-start/.idea/misc.xml b/../hirst-painting-start/.idea/misc.xml
+deleted file mode 100644
+--- a/../hirst-painting-start/.idea/misc.xml	(revision cb6ae9f95bc57683db76624a64eae164fb3b0027)
++++ /dev/null	(revision cb6ae9f95bc57683db76624a64eae164fb3b0027)
+@@ -1,7 +0,0 @@
+-<?xml version="1.0" encoding="UTF-8"?>
+-<project version="4">
+-  <component name="Black">
+-    <option name="sdkName" value="Python 3.11" />
+-  </component>
+-  <component name="ProjectRootManager" version="2" project-jdk-name="Python 3.11" project-jdk-type="Python SDK" />
+-</project>
+\ No newline at end of file
+Index: ../Games/quiz-game/.idea/modules.xml
+===================================================================
+diff --git a/../Games/quiz-game/.idea/modules.xml b/../Games/quiz-game/.idea/modules.xml
+deleted file mode 100644
+--- a/../Games/quiz-game/.idea/modules.xml	(revision cb6ae9f95bc57683db76624a64eae164fb3b0027)
++++ /dev/null	(revision cb6ae9f95bc57683db76624a64eae164fb3b0027)
+@@ -1,8 +0,0 @@
+-<?xml version="1.0" encoding="UTF-8"?>
+-<project version="4">
+-  <component name="ProjectModuleManager">
+-    <modules>
+-      <module fileurl="file://$PROJECT_DIR$/.idea/Quiz Game.iml" filepath="$PROJECT_DIR$/.idea/Quiz Game.iml" />
+-    </modules>
+-  </component>
+-</project>
+\ No newline at end of file
+Index: ../Games/snake-Game/.idea/modules.xml
+===================================================================
+diff --git a/../Games/snake-Game/.idea/modules.xml b/../Games/snake-Game/.idea/modules.xml
+deleted file mode 100644
+--- a/../Games/snake-Game/.idea/modules.xml	(revision cb6ae9f95bc57683db76624a64eae164fb3b0027)
++++ /dev/null	(revision cb6ae9f95bc57683db76624a64eae164fb3b0027)
+@@ -1,8 +0,0 @@
+-<?xml version="1.0" encoding="UTF-8"?>
+-<project version="4">
+-  <component name="ProjectModuleManager">
+-    <modules>
+-      <module fileurl="file://$PROJECT_DIR$/.idea/snake-Game.iml" filepath="$PROJECT_DIR$/.idea/snake-Game.iml" />
+-    </modules>
+-  </component>
+-</project>
+\ No newline at end of file
+Index: ../draw-by-turtle/.idea/inspectionProfiles/profiles_settings.xml
+===================================================================
+diff --git a/../draw-by-turtle/.idea/inspectionProfiles/profiles_settings.xml b/../draw-by-turtle/.idea/inspectionProfiles/profiles_settings.xml
+deleted file mode 100644
+--- a/../draw-by-turtle/.idea/inspectionProfiles/profiles_settings.xml	(revision cb6ae9f95bc57683db76624a64eae164fb3b0027)
++++ /dev/null	(revision cb6ae9f95bc57683db76624a64eae164fb3b0027)
+@@ -1,6 +0,0 @@
+-<component name="InspectionProjectProfileManager">
+-  <settings>
+-    <option name="USE_PROJECT_PROFILE" value="false" />
+-    <version value="1.0" />
+-  </settings>
+-</component>
+\ No newline at end of file
+Index: ../india-states-game/main.py
+===================================================================
+diff --git a/../india-states-game/main.py b/../india-states-game/main.py
+deleted file mode 100644
+--- a/../india-states-game/main.py	(revision cb6ae9f95bc57683db76624a64eae164fb3b0027)
++++ /dev/null	(revision cb6ae9f95bc57683db76624a64eae164fb3b0027)
+@@ -1,35 +0,0 @@
+-import turtle
+-import pandas
+-
+-screen = turtle.Screen()
+-screen.title("Bharat States Game")
+-screen.setup(700, 800)
+-image = "india.gif"
+-screen.addshape(image)
+-turtle.shape(image)
+-
+-data = pandas.read_csv("50_state.csv")
+-all_states = data.state.to_list()
+-guess_states = []
+-
+-while len(guess_states) < 37:
+-    ans_state = screen.textinput(title=f"{len(guess_states)}/36 State/UT Correct ",
+-                                 prompt="Enter next state name: ").title()
+-
+-    if ans_state == "Exit":
+-        missing_states = [state for state in all_states if state not in guess_states]
+-        new_data = pandas.DataFrame(missing_states)
+-        new_data.to_csv("states_to_learn.csv")
+-        break
+-    
+-    if ans_state in all_states:
+-        guess_states.append(ans_state)
+-        t = turtle.Turtle()
+-        t.hideturtle()
+-        t.penup()
+-        state_data = data[data.state == ans_state]
+-        t.goto(int(state_data.x), int(state_data.y))
+-        t.write(ans_state)
+-
+-
+-screen.exitonclick()
+Index: ../hirst-painting-start/.idea/hirst-painting-start.iml
+===================================================================
+diff --git a/../hirst-painting-start/.idea/hirst-painting-start.iml b/../hirst-painting-start/.idea/hirst-painting-start.iml
+deleted file mode 100644
+--- a/../hirst-painting-start/.idea/hirst-painting-start.iml	(revision cb6ae9f95bc57683db76624a64eae164fb3b0027)
++++ /dev/null	(revision cb6ae9f95bc57683db76624a64eae164fb3b0027)
+@@ -1,8 +0,0 @@
+-<?xml version="1.0" encoding="UTF-8"?>
+-<module type="PYTHON_MODULE" version="4">
+-  <component name="NewModuleRootManager">
+-    <content url="file://$MODULE_DIR$" />
+-    <orderEntry type="inheritedJdk" />
+-    <orderEntry type="sourceFolder" forTests="false" />
+-  </component>
+-</module>
+\ No newline at end of file
+Index: ../Games/quiz-game/question_model.py
+===================================================================
+diff --git a/../Games/quiz-game/question_model.py b/../Games/quiz-game/question_model.py
+deleted file mode 100644
+--- a/../Games/quiz-game/question_model.py	(revision cb6ae9f95bc57683db76624a64eae164fb3b0027)
++++ /dev/null	(revision cb6ae9f95bc57683db76624a64eae164fb3b0027)
+@@ -1,4 +0,0 @@
+-class Question:
+-    def __init__(self, q_text, q_answer):
+-        self.text = q_text
+-        self.answer = q_answer
+Index: ../turtle-pro/.idea/modules.xml
+===================================================================
+diff --git a/../turtle-pro/.idea/modules.xml b/../turtle-pro/.idea/modules.xml
+deleted file mode 100644
+--- a/../turtle-pro/.idea/modules.xml	(revision cb6ae9f95bc57683db76624a64eae164fb3b0027)
++++ /dev/null	(revision cb6ae9f95bc57683db76624a64eae164fb3b0027)
+@@ -1,8 +0,0 @@
+-<?xml version="1.0" encoding="UTF-8"?>
+-<project version="4">
+-  <component name="ProjectModuleManager">
+-    <modules>
+-      <module fileurl="file://$PROJECT_DIR$/.idea/Turtle.iml" filepath="$PROJECT_DIR$/.idea/Turtle.iml" />
+-    </modules>
+-  </component>
+-</project>
+\ No newline at end of file
+Index: ../turtle-cross-the-road/.idea/.gitignore
+===================================================================
+diff --git a/../turtle-cross-the-road/.idea/.gitignore b/../turtle-cross-the-road/.idea/.gitignore
+deleted file mode 100644
+--- a/../turtle-cross-the-road/.idea/.gitignore	(revision cb6ae9f95bc57683db76624a64eae164fb3b0027)
++++ /dev/null	(revision cb6ae9f95bc57683db76624a64eae164fb3b0027)
+@@ -1,3 +0,0 @@
+-# Default ignored files
+-/shelf/
+-/workspace.xml
+Index: ../hirst-painting-start/.idea/inspectionProfiles/profiles_settings.xml
+===================================================================
+diff --git a/../hirst-painting-start/.idea/inspectionProfiles/profiles_settings.xml b/../hirst-painting-start/.idea/inspectionProfiles/profiles_settings.xml
+deleted file mode 100644
+--- a/../hirst-painting-start/.idea/inspectionProfiles/profiles_settings.xml	(revision cb6ae9f95bc57683db76624a64eae164fb3b0027)
++++ /dev/null	(revision cb6ae9f95bc57683db76624a64eae164fb3b0027)
+@@ -1,6 +0,0 @@
+-<component name="InspectionProjectProfileManager">
+-  <settings>
+-    <option name="USE_PROJECT_PROFILE" value="false" />
+-    <version value="1.0" />
+-  </settings>
+-</component>
+\ No newline at end of file
+Index: ../Games/pong-game/scoreboard.py
+===================================================================
+diff --git a/../Games/pong-game/scoreboard.py b/../Games/pong-game/scoreboard.py
+deleted file mode 100644
+--- a/../Games/pong-game/scoreboard.py	(revision cb6ae9f95bc57683db76624a64eae164fb3b0027)
++++ /dev/null	(revision cb6ae9f95bc57683db76624a64eae164fb3b0027)
+@@ -1,33 +0,0 @@
+-from turtle import Turtle
+-
+-# Global constant for font style
+-FONT = ("Courier", 30, "bold")
+-
+-class ScoreBoard(Turtle):
+-    def __init__(self):
+-        super().__init__()
+-        # Initialize scoreboard attributes
+-        self.color("white")
+-        self.penup()
+-        self.hideturtle()
+-        self.l_score = 0  # Left player's score
+-        self.r_score = 0  # Right player's score
+-        self.update_scoreboard()
+-
+-    def update_scoreboard(self):
+-        # Update the scoreboard with the latest scores
+-        self.clear()
+-        self.goto(-100, 250)  # Position for left player's score
+-        self.write(self.l_score, align="center", font=FONT)  # Write left player's score
+-        self.goto(100, 250)   # Position for right player's score
+-        self.write(self.r_score, align="center", font=FONT)  # Write right player's score
+-
+-    def l_point(self):
+-        # Increase left player's score by 1 and update scoreboard
+-        self.l_score += 1
+-        self.update_scoreboard()
+-
+-    def r_point(self):
+-        # Increase right player's score by 1 and update scoreboard
+-        self.r_score += 1
+-        self.update_scoreboard()
+Index: ../india-states-game/.idea/misc.xml
+===================================================================
+diff --git a/../india-states-game/.idea/misc.xml b/../india-states-game/.idea/misc.xml
+deleted file mode 100644
+--- a/../india-states-game/.idea/misc.xml	(revision cb6ae9f95bc57683db76624a64eae164fb3b0027)
++++ /dev/null	(revision cb6ae9f95bc57683db76624a64eae164fb3b0027)
+@@ -1,7 +0,0 @@
+-<?xml version="1.0" encoding="UTF-8"?>
+-<project version="4">
+-  <component name="Black">
+-    <option name="sdkName" value="Python 3.11" />
+-  </component>
+-  <component name="ProjectRootManager" version="2" project-jdk-name="Python 3.11" project-jdk-type="Python SDK" />
+-</project>
+\ No newline at end of file
+Index: ../Games/us-states-game/.idea/workspace.xml
+===================================================================
+diff --git a/../Games/us-states-game/.idea/workspace.xml b/../Games/us-states-game/.idea/workspace.xml
+deleted file mode 100644
+--- a/../Games/us-states-game/.idea/workspace.xml	(revision cb6ae9f95bc57683db76624a64eae164fb3b0027)
++++ /dev/null	(revision cb6ae9f95bc57683db76624a64eae164fb3b0027)
+@@ -1,54 +0,0 @@
+-<?xml version="1.0" encoding="UTF-8"?>
+-<project version="4">
+-  <component name="AutoImportSettings">
+-    <option name="autoReloadType" value="SELECTIVE" />
+-  </component>
+-  <component name="ChangeListManager">
+-    <list default="true" id="1309253a-83d0-453c-b54b-a7c08038e886" name="Changes" comment="" />
+-    <option name="SHOW_DIALOG" value="false" />
+-    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+-    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+-    <option name="LAST_RESOLUTION" value="IGNORE" />
+-  </component>
+-  <component name="ProjectColorInfo">{
+-  &quot;associatedIndex&quot;: 0
+-}</component>
+-  <component name="ProjectId" id="2aFx5giAZd9QpOt3r9Sey03hp9k" />
+-  <component name="ProjectViewState">
+-    <option name="hideEmptyMiddlePackages" value="true" />
+-    <option name="showLibraryContents" value="true" />
+-  </component>
+-  <component name="PropertiesComponent"><![CDATA[{
+-  "keyToString": {
+-    "Python.main.executor": "Run",
+-    "Python.pk.executor": "Run",
+-    "RunOnceActivity.OpenProjectViewOnStart": "true",
+-    "RunOnceActivity.ShowReadmeOnStart": "true",
+-    "last_opened_file_path": "P:/Programming/Python/Python Project Udemy/india-states-game"
+-  }
+-}]]></component>
+-  <component name="RecentsManager">
+-    <key name="MoveFile.RECENT_KEYS">
+-      <recent name="P:\Programming\Python\Python Project Udemy\us-states-game\New folder" />
+-      <recent name="P:\Programming\Python\Python Project Udemy\us-states-game" />
+-    </key>
+-  </component>
+-  <component name="SharedIndexes">
+-    <attachedChunks>
+-      <set>
+-        <option value="bundled-python-sdk-50da183f06c8-d3b881c8e49f-com.jetbrains.pycharm.community.sharedIndexes.bundled-PC-233.13135.95" />
+-      </set>
+-    </attachedChunks>
+-  </component>
+-  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+-  <component name="TaskManager">
+-    <task active="true" id="Default" summary="Default task">
+-      <changelist id="1309253a-83d0-453c-b54b-a7c08038e886" name="Changes" comment="" />
+-      <created>1703927947051</created>
+-      <option name="number" value="Default" />
+-      <option name="presentableId" value="Default" />
+-      <updated>1703927947051</updated>
+-    </task>
+-    <servers />
+-  </component>
+-</project>
+\ No newline at end of file
+Index: ../draw-by-turtle/.idea/misc.xml
+===================================================================
+diff --git a/../draw-by-turtle/.idea/misc.xml b/../draw-by-turtle/.idea/misc.xml
+deleted file mode 100644
+--- a/../draw-by-turtle/.idea/misc.xml	(revision cb6ae9f95bc57683db76624a64eae164fb3b0027)
++++ /dev/null	(revision cb6ae9f95bc57683db76624a64eae164fb3b0027)
+@@ -1,7 +0,0 @@
+-<?xml version="1.0" encoding="UTF-8"?>
+-<project version="4">
+-  <component name="Black">
+-    <option name="sdkName" value="Python 3.11 (move-turtle)" />
+-  </component>
+-  <component name="ProjectRootManager" version="2" project-jdk-name="Python 3.11 (move-turtle)" project-jdk-type="Python SDK" />
+-</project>
+\ No newline at end of file
+Index: ../Games/pong-game/.idea/pong-game.iml
+===================================================================
+diff --git a/../Games/pong-game/.idea/pong-game.iml b/../Games/pong-game/.idea/pong-game.iml
+deleted file mode 100644
+--- a/../Games/pong-game/.idea/pong-game.iml	(revision cb6ae9f95bc57683db76624a64eae164fb3b0027)
++++ /dev/null	(revision cb6ae9f95bc57683db76624a64eae164fb3b0027)
+@@ -1,10 +0,0 @@
+-<?xml version="1.0" encoding="UTF-8"?>
+-<module type="PYTHON_MODULE" version="4">
+-  <component name="NewModuleRootManager">
+-    <content url="file://$MODULE_DIR$">
+-      <excludeFolder url="file://$MODULE_DIR$/.venv" />
+-    </content>
+-    <orderEntry type="inheritedJdk" />
+-    <orderEntry type="sourceFolder" forTests="false" />
+-  </component>
+-</module>
+\ No newline at end of file
+Index: ../hirst-painting-start/.idea/modules.xml
+===================================================================
+diff --git a/../hirst-painting-start/.idea/modules.xml b/../hirst-painting-start/.idea/modules.xml
+deleted file mode 100644
+--- a/../hirst-painting-start/.idea/modules.xml	(revision cb6ae9f95bc57683db76624a64eae164fb3b0027)
++++ /dev/null	(revision cb6ae9f95bc57683db76624a64eae164fb3b0027)
+@@ -1,8 +0,0 @@
+-<?xml version="1.0" encoding="UTF-8"?>
+-<project version="4">
+-  <component name="ProjectModuleManager">
+-    <modules>
+-      <module fileurl="file://$PROJECT_DIR$/.idea/hirst-painting-start.iml" filepath="$PROJECT_DIR$/.idea/hirst-painting-start.iml" />
+-    </modules>
+-  </component>
+-</project>
+\ No newline at end of file
+Index: ../turtle-pro/turtle_random_walk.py
+===================================================================
+diff --git a/../turtle-pro/turtle_random_walk.py b/../turtle-pro/turtle_random_walk.py
+deleted file mode 100644
+--- a/../turtle-pro/turtle_random_walk.py	(revision cb6ae9f95bc57683db76624a64eae164fb3b0027)
++++ /dev/null	(revision cb6ae9f95bc57683db76624a64eae164fb3b0027)
+@@ -1,27 +0,0 @@
+-import turtle
+-from turtle import Turtle, Screen
+-import random
+-
+-turtleObj = Turtle()
+-turtleObj.shape("triangle")
+-turtle.colormode(255)
+-direction_lis = [0, 90, 180, 270]
+-turtleObj.pensize(10)
+-
+-
+-def random_color():
+-    r = random.randint(0, 255)
+-    g = random.randint(0, 255)
+-    b = random.randint(0, 255)
+-    random_color_tuple = (r, g, b)
+-    return random_color_tuple
+-
+-
+-for _ in range(100):
+-    turtleObj.color(random_color())
+-    turtleObj.forward(30)
+-    turtleObj.setheading(random.choice(direction_lis))
+-
+-
+-screenObj = Screen()
+-screenObj.exitonclick()
+Index: ../turtle-cross-the-road/scoreboard.py
+===================================================================
+diff --git a/../turtle-cross-the-road/scoreboard.py b/../turtle-cross-the-road/scoreboard.py
+deleted file mode 100644
+--- a/../turtle-cross-the-road/scoreboard.py	(revision cb6ae9f95bc57683db76624a64eae164fb3b0027)
++++ /dev/null	(revision cb6ae9f95bc57683db76624a64eae164fb3b0027)
+@@ -1,27 +0,0 @@
+-from turtle import Turtle
+-FONT = ("Courier", 15, "bold")
+-
+-
+-class Scoreboard(Turtle):
+-    def __init__(self):
+-        super().__init__()
+-        self.color("black")
+-        self.level = 1
+-        self.penup()
+-        self.hideturtle()
+-        self.goto(-285, 270)
+-        self.display()
+-    def next_level(self):
+-        self.level += 1
+-        self.display()
+-
+-    def display(self):
+-        self.clear()
+-        self.write(arg=f"Level:{self.level} ",align="left",font=FONT)
+-
+-    def game_end(self):
+-        self.color("red")
+-        self.goto(0, 0)
+-        self.write(arg="GAME OVER",align="center",font=("Courier", 20, "bold"))
+-
+-
+Index: ../Snake+Project+Code+from+Day+21/snake.py
+===================================================================
+diff --git a/../Snake+Project+Code+from+Day+21/snake.py b/../Snake+Project+Code+from+Day+21/snake.py
+deleted file mode 100644
+--- a/../Snake+Project+Code+from+Day+21/snake.py	(revision cb6ae9f95bc57683db76624a64eae164fb3b0027)
++++ /dev/null	(revision cb6ae9f95bc57683db76624a64eae164fb3b0027)
+@@ -1,52 +0,0 @@
+-from turtle import Turtle
+-STARTING_POSITIONS = [(0, 0), (-20, 0), (-40, 0)]
+-MOVE_DISTANCE = 20
+-UP = 90
+-DOWN = 270
+-LEFT = 180
+-RIGHT = 0
+-
+-
+-class Snake:
+-
+-    def __init__(self):
+-        self.segments = []
+-        self.create_snake()
+-        self.head = self.segments[0]
+-
+-    def create_snake(self):
+-        for position in STARTING_POSITIONS:
+-            self.add_segment(position)
+-
+-    def add_segment(self, position):
+-        new_segment = Turtle("square")
+-        new_segment.color("white")
+-        new_segment.penup()
+-        new_segment.goto(position)
+-        self.segments.append(new_segment)
+-
+-    def extend(self):
+-        self.add_segment(self.segments[-1].position())
+-
+-    def move(self):
+-        for seg_num in range(len(self.segments) - 1, 0, -1):
+-            new_x = self.segments[seg_num - 1].xcor()
+-            new_y = self.segments[seg_num - 1].ycor()
+-            self.segments[seg_num].goto(new_x, new_y)
+-        self.head.forward(MOVE_DISTANCE)
+-
+-    def up(self):
+-        if self.head.heading() != DOWN:
+-            self.head.setheading(UP)
+-
+-    def down(self):
+-        if self.head.heading() != UP:
+-            self.head.setheading(DOWN)
+-
+-    def left(self):
+-        if self.head.heading() != RIGHT:
+-            self.head.setheading(LEFT)
+-
+-    def right(self):
+-        if self.head.heading() != LEFT:
+-            self.head.setheading(RIGHT)
+Index: ../Games/snake-Game/.idea/misc.xml
+===================================================================
+diff --git a/../Games/snake-Game/.idea/misc.xml b/../Games/snake-Game/.idea/misc.xml
+deleted file mode 100644
+--- a/../Games/snake-Game/.idea/misc.xml	(revision cb6ae9f95bc57683db76624a64eae164fb3b0027)
++++ /dev/null	(revision cb6ae9f95bc57683db76624a64eae164fb3b0027)
+@@ -1,7 +0,0 @@
+-<?xml version="1.0" encoding="UTF-8"?>
+-<project version="4">
+-  <component name="Black">
+-    <option name="sdkName" value="Python 3.11 (snake-Game)" />
+-  </component>
+-  <component name="ProjectRootManager" version="2" project-jdk-name="Python 3.11 (snake-Game)" project-jdk-type="Python SDK" />
+-</project>
+\ No newline at end of file
+Index: ../turtle-cross-the-road/.idea/modules.xml
+===================================================================
+diff --git a/../turtle-cross-the-road/.idea/modules.xml b/../turtle-cross-the-road/.idea/modules.xml
+deleted file mode 100644
+--- a/../turtle-cross-the-road/.idea/modules.xml	(revision cb6ae9f95bc57683db76624a64eae164fb3b0027)
++++ /dev/null	(revision cb6ae9f95bc57683db76624a64eae164fb3b0027)
+@@ -1,8 +0,0 @@
+-<?xml version="1.0" encoding="UTF-8"?>
+-<project version="4">
+-  <component name="ProjectModuleManager">
+-    <modules>
+-      <module fileurl="file://$PROJECT_DIR$/.idea/turtle-cross-the-road.iml" filepath="$PROJECT_DIR$/.idea/turtle-cross-the-road.iml" />
+-    </modules>
+-  </component>
+-</project>
+\ No newline at end of file
+Index: ../Games/turtle-race/.idea/inspectionProfiles/profiles_settings.xml
+===================================================================
+diff --git a/../Games/turtle-race/.idea/inspectionProfiles/profiles_settings.xml b/../Games/turtle-race/.idea/inspectionProfiles/profiles_settings.xml
+deleted file mode 100644
+--- a/../Games/turtle-race/.idea/inspectionProfiles/profiles_settings.xml	(revision cb6ae9f95bc57683db76624a64eae164fb3b0027)
++++ /dev/null	(revision cb6ae9f95bc57683db76624a64eae164fb3b0027)
+@@ -1,6 +0,0 @@
+-<component name="InspectionProjectProfileManager">
+-  <settings>
+-    <option name="USE_PROJECT_PROFILE" value="false" />
+-    <version value="1.0" />
+-  </settings>
+-</component>
+\ No newline at end of file
+Index: ../Snake+Project+Code+from+Day+21/food.py
+===================================================================
+diff --git a/../Snake+Project+Code+from+Day+21/food.py b/../Snake+Project+Code+from+Day+21/food.py
+deleted file mode 100644
+--- a/../Snake+Project+Code+from+Day+21/food.py	(revision cb6ae9f95bc57683db76624a64eae164fb3b0027)
++++ /dev/null	(revision cb6ae9f95bc57683db76624a64eae164fb3b0027)
+@@ -1,19 +0,0 @@
+-from turtle import Turtle
+-import random
+-
+-
+-class Food(Turtle):
+-
+-    def __init__(self):
+-        super().__init__()
+-        self.shape("circle")
+-        self.penup()
+-        self.shapesize(stretch_len=0.5, stretch_wid=0.5)
+-        self.color("blue")
+-        self.speed("fastest")
+-        self.refresh()
+-
+-    def refresh(self):
+-        random_x = random.randint(-280, 280)
+-        random_y = random.randint(-280, 280)
+-        self.goto(random_x, random_y)
+Index: ../Games/turtle-race/main.py
+===================================================================
+diff --git a/../Games/turtle-race/main.py b/../Games/turtle-race/main.py
+deleted file mode 100644
+--- a/../Games/turtle-race/main.py	(revision cb6ae9f95bc57683db76624a64eae164fb3b0027)
++++ /dev/null	(revision cb6ae9f95bc57683db76624a64eae164fb3b0027)
+@@ -1,37 +0,0 @@
+-import random
+-from turtle import Turtle, Screen
+-
+-race_start = False
+-s_obj = Screen()
+-s_obj.setup(500,400)
+-u_bet = s_obj.textinput("Make your bet", "Which color turtle will win the race ?  ")
+-colors = ["red","black","green","blue","brown","yellow","grey"]
+-y_index_position = [-100, -70, -40, -10, 20, 50, 80]
+-all_turtle = []
+-for i in range(0,7):
+-    t_obj = Turtle(shape="turtle")
+-    t_obj.penup()
+-    t_obj.color(colors[i])
+-    t_obj.goto(x=- 230, y=y_index_position[i])
+-    all_turtle.append(t_obj)
+-
+-if u_bet:
+-    race_start = True
+-
+-while race_start:
+-    for turtle in all_turtle:
+-        random_distance = random.randint(0, 10)
+-        turtle.forward(random_distance)
+-        if turtle.xcor() > 220:
+-            race_start = False
+-            winning_color = turtle.pencolor()
+-            if winning_color == u_bet:
+-                print(f"Your '{winning_color} turtle' won the race.")
+-            else:
+-                print(f"Ohh..!, You lose the race '{winning_color} turtle'  is the winner of the race.")
+-
+-
+-s_obj.exitonclick()
+-
+-
+-
+Index: ../Games/pong-game/.idea/inspectionProfiles/profiles_settings.xml
+===================================================================
+diff --git a/../Games/pong-game/.idea/inspectionProfiles/profiles_settings.xml b/../Games/pong-game/.idea/inspectionProfiles/profiles_settings.xml
+deleted file mode 100644
+--- a/../Games/pong-game/.idea/inspectionProfiles/profiles_settings.xml	(revision cb6ae9f95bc57683db76624a64eae164fb3b0027)
++++ /dev/null	(revision cb6ae9f95bc57683db76624a64eae164fb3b0027)
+@@ -1,6 +0,0 @@
+-<component name="InspectionProjectProfileManager">
+-  <settings>
+-    <option name="USE_PROJECT_PROFILE" value="false" />
+-    <version value="1.0" />
+-  </settings>
+-</component>
+\ No newline at end of file
+Index: ../hirst-painting-start/.idea/.gitignore
+===================================================================
+diff --git a/../hirst-painting-start/.idea/.gitignore b/../hirst-painting-start/.idea/.gitignore
+deleted file mode 100644
+--- a/../hirst-painting-start/.idea/.gitignore	(revision cb6ae9f95bc57683db76624a64eae164fb3b0027)
++++ /dev/null	(revision cb6ae9f95bc57683db76624a64eae164fb3b0027)
+@@ -1,3 +0,0 @@
+-# Default ignored files
+-/shelf/
+-/workspace.xml
+Index: ../Games/snake-Game/data.txt
+===================================================================
+diff --git a/../Games/snake-Game/data.txt b/../Games/snake-Game/data.txt
+deleted file mode 100644
+--- a/../Games/snake-Game/data.txt	(revision cb6ae9f95bc57683db76624a64eae164fb3b0027)
++++ /dev/null	(revision cb6ae9f95bc57683db76624a64eae164fb3b0027)
+@@ -1,1 +0,0 @@
+-10
+\ No newline at end of file
+Index: ../Snake+Project+Code+from+Day+21/scoreboard.py
+===================================================================
+diff --git a/../Snake+Project+Code+from+Day+21/scoreboard.py b/../Snake+Project+Code+from+Day+21/scoreboard.py
+deleted file mode 100644
+--- a/../Snake+Project+Code+from+Day+21/scoreboard.py	(revision cb6ae9f95bc57683db76624a64eae164fb3b0027)
++++ /dev/null	(revision cb6ae9f95bc57683db76624a64eae164fb3b0027)
+@@ -1,27 +0,0 @@
+-from turtle import Turtle
+-ALIGNMENT = "center"
+-FONT = ("Courier", 24, "normal")
+-
+-
+-class Scoreboard(Turtle):
+-
+-    def __init__(self):
+-        super().__init__()
+-        self.score = 0
+-        self.color("white")
+-        self.penup()
+-        self.goto(0, 270)
+-        self.hideturtle()
+-        self.update_scoreboard()
+-
+-    def update_scoreboard(self):
+-        self.write(f"Score: {self.score}", align=ALIGNMENT, font=FONT)
+-
+-    def game_over(self):
+-        self.goto(0, 0)
+-        self.write("GAME OVER", align=ALIGNMENT, font=FONT)
+-
+-    def increase_score(self):
+-        self.score += 1
+-        self.clear()
+-        self.update_scoreboard()
+Index: ../hirst-painting-start/main.py
+===================================================================
+diff --git a/../hirst-painting-start/main.py b/../hirst-painting-start/main.py
+deleted file mode 100644
+--- a/../hirst-painting-start/main.py	(revision cb6ae9f95bc57683db76624a64eae164fb3b0027)
++++ /dev/null	(revision cb6ae9f95bc57683db76624a64eae164fb3b0027)
+@@ -1,43 +0,0 @@
+-# import colorgram
+-#
+-# rgb_colors = []
+-# colors = colorgram.extract('image.jpg', 30)
+-# for color in colors:
+-#     r = color.rgb.r
+-#     g = color.rgb.g
+-#     b = color.rgb.b
+-#     new_color = (r, g, b)
+-#     rgb_colors.append(new_color)
+-#
+-# print(rgb_colors)
+-import random
+-import turtle
+-from turtle import Turtle, Screen
+-
+-turtle.colormode(255)
+-turtle_obj1 = Turtle()
+-color_list = [(245, 243, 238), (246, 242, 244), (202, 164, 110), (240, 245, 241), (236, 239, 243), (149, 75, 50), (222, 201, 136), (53, 93, 123), (170, 154, 41), (138, 31, 20), (134, 163, 184), (197, 92, 73), (47, 121, 86), (73, 43, 35), (145, 178, 149), (14, 98, 70), (232, 176, 165), (160, 142, 158), (54, 45, 50), (101, 75, 77), (183, 205, 171), (36, 60, 74), (19, 86, 89), (82, 148, 129), (147, 17, 19), (27, 68, 102), (12, 70, 64), (107, 127, 153), (176, 192, 208), (168, 99, 102)]
+-turtle_obj1.speed("fastest")
+-
+-turtle_obj1.setheading(225)
+-turtle_obj1.hideturtle()
+-turtle_obj1.penup()
+-turtle_obj1.forward(300)
+-turtle_obj1.setheading(0)
+-number_of_dots = 100
+-
+-for dot_count in range(1, number_of_dots + 1):
+-    turtle_obj1.dot(20, random.choice(color_list))
+-    turtle_obj1.penup()
+-    turtle_obj1.forward(50)
+-
+-    if dot_count % 10 == 0:
+-        turtle_obj1.setheading(90)
+-        turtle_obj1.forward(50)
+-        turtle_obj1.setheading(180)
+-        turtle_obj1.forward(500)
+-        turtle_obj1.setheading(0)
+-
+-
+-screen_Obj = Screen()
+-screen_Obj.exitonclick()
+\ No newline at end of file
+Index: ../turtle-pro/.idea/.gitignore
+===================================================================
+diff --git a/../turtle-pro/.idea/.gitignore b/../turtle-pro/.idea/.gitignore
+deleted file mode 100644
+--- a/../turtle-pro/.idea/.gitignore	(revision cb6ae9f95bc57683db76624a64eae164fb3b0027)
++++ /dev/null	(revision cb6ae9f95bc57683db76624a64eae164fb3b0027)
+@@ -1,3 +0,0 @@
+-# Default ignored files
+-/shelf/
+-/workspace.xml
+Index: ../Games/snake-Game/snake.py
+===================================================================
+diff --git a/../Games/snake-Game/snake.py b/../Games/snake-Game/snake.py
+deleted file mode 100644
+--- a/../Games/snake-Game/snake.py	(revision cb6ae9f95bc57683db76624a64eae164fb3b0027)
++++ /dev/null	(revision cb6ae9f95bc57683db76624a64eae164fb3b0027)
+@@ -1,58 +0,0 @@
+-from turtle import Turtle
+-STARTING_POSITIONS = [(0, 0), (-20, 0), (-40, 0)]
+-MOVE_DISTANCE = 20
+-UP = 90
+-DOWN = 270
+-RIGHT = 0
+-LEFT = 180
+-
+-
+-class Snake:
+-    def __init__(self):
+-        self.segments = []
+-        self.create_snake()
+-        self.head = self.segments[0]
+-
+-    def create_snake(self):
+-        for position in STARTING_POSITIONS:
+-         self.add_segment(position)
+-
+-    def add_segment(self, position):
+-        new_seg = Turtle("square")
+-        new_seg.color("white")
+-        new_seg.penup()
+-        new_seg.goto(position)
+-        self.segments.append(new_seg)
+-
+-    def reset(self):
+-        for seg in self.segments:
+-            seg.goto(1000, 1000)
+-        self.segments.clear()
+-        self.create_snake()
+-        self.head = self.segments[0]
+-    def extend(self):
+-        self.add_segment(self.segments[-1].position())
+-
+-    def move(self):
+-        for seg in range(len(self.segments) - 1, 0, -1):
+-            new_x = self.segments[seg - 1].xcor()
+-            new_y = self.segments[seg - 1].ycor()
+-            self.segments[seg].goto(new_x, new_y)
+-        self.head.forward(MOVE_DISTANCE)
+-
+-    def up(self):
+-        if self.head.heading() != DOWN:
+-            self.head.setheading(90)
+-
+-    def down(self):
+-        if self.head.heading() != UP:
+-            self.head.setheading(270)
+-
+-    def right(self):
+-        if self.head.heading() != LEFT:
+-            self.head.setheading(0)
+-
+-    def left(self):
+-        if self.head.heading() != RIGHT:
+-            self.head.setheading(180)
+-
+Index: ../turtle-pro/.idea/Turtle.iml
+===================================================================
+diff --git a/../turtle-pro/.idea/Turtle.iml b/../turtle-pro/.idea/Turtle.iml
+deleted file mode 100644
+--- a/../turtle-pro/.idea/Turtle.iml	(revision cb6ae9f95bc57683db76624a64eae164fb3b0027)
++++ /dev/null	(revision cb6ae9f95bc57683db76624a64eae164fb3b0027)
+@@ -1,8 +0,0 @@
+-<?xml version="1.0" encoding="UTF-8"?>
+-<module type="PYTHON_MODULE" version="4">
+-  <component name="NewModuleRootManager">
+-    <content url="file://$MODULE_DIR$" />
+-    <orderEntry type="jdk" jdkName="Python 3.11" jdkType="Python SDK" />
+-    <orderEntry type="sourceFolder" forTests="false" />
+-  </component>
+-</module>
+\ No newline at end of file
+Index: ../turtle-cross-the-road/player.py
+===================================================================
+diff --git a/../turtle-cross-the-road/player.py b/../turtle-cross-the-road/player.py
+deleted file mode 100644
+--- a/../turtle-cross-the-road/player.py	(revision cb6ae9f95bc57683db76624a64eae164fb3b0027)
++++ /dev/null	(revision cb6ae9f95bc57683db76624a64eae164fb3b0027)
+@@ -1,21 +0,0 @@
+-from turtle import Turtle
+-STARTING_POSITION = (0, -280)
+-MOVE_DISTANCE = 10
+-FINISH_LINE_Y = 280
+-
+-
+-class Player(Turtle):
+-    def __init__(self):
+-        super().__init__()
+-        self.penup()
+-        self.shape("turtle")
+-        self.color("black")
+-        self.setheading(90)
+-        self.goto(STARTING_POSITION)
+-
+-    def go_up(self):
+-        self.forward(MOVE_DISTANCE)
+-
+-    def new_level(self):
+-        self.goto(STARTING_POSITION)
+-
+Index: ../Games/pong-game/main.py
+===================================================================
+diff --git a/../Games/pong-game/main.py b/../Games/pong-game/main.py
+deleted file mode 100644
+--- a/../Games/pong-game/main.py	(revision cb6ae9f95bc57683db76624a64eae164fb3b0027)
++++ /dev/null	(revision cb6ae9f95bc57683db76624a64eae164fb3b0027)
+@@ -1,54 +0,0 @@
+-# Importing necessary modules and classes
+-from turtle import Turtle, Screen
+-from paddle import Paddle
+-from ball import Ball
+-from scoreboard import ScoreBoard
+-import time
+-
+-# Setting up the screen
+-screen = Screen()
+-screen.setup(800, 600)
+-screen.bgcolor("black")
+-screen.title("Pong Game")
+-screen.tracer(0)
+-
+-# Creating right and left paddles, ball, and scoreboard
+-r_paddle = Paddle((350, 0))
+-l_paddle = Paddle((-350, 0))
+-ball = Ball()
+-scoreboard = ScoreBoard()
+-
+-# Listening to keyboard events
+-screen.listen()
+-screen.onkey(r_paddle.go_up, "Up")       # Move right paddle up
+-screen.onkey(r_paddle.go_down, "Down")   # Move right paddle down
+-screen.onkey(l_paddle.go_up, "w")         # Move left paddle up
+-screen.onkey(l_paddle.go_down, "x")     # Move left paddle down
+-
+-# Main game loop
+-game_is_on = True
+-while game_is_on:
+-    time.sleep(ball.ball_speed)  # Slowing down the ball movement
+-    screen.update()              # Updating the screen
+-    ball.move()                  # Moving the ball
+-
+-    # ------- Detect collision with wall -------- #
+-    if ball.ycor() > 280 or ball.ycor() < -280:
+-        ball.bounce_y()          # Change ball's y direction
+-
+-    # ------- Detect collision with paddle -------- #
+-    if (ball.distance(r_paddle) < 50 and ball.xcor() > 320) or (ball.distance(l_paddle) < 50 and ball.xcor() < -320):
+-        ball.bounce_x()          # Change ball's x direction
+-
+-    # ------- Detect ball miss r_paddle -------- #
+-    if ball.xcor() > 380:
+-        ball.reset_position()    # Reset ball position
+-        scoreboard.l_point()     # Increase left paddle's score
+-
+-    # ------- Detect ball miss l_paddle -------- #
+-    if ball.xcor() < -380:
+-        ball.reset_position()    # Reset ball position
+-        scoreboard.r_point()     # Increase right paddle's score
+-
+-# Exit the game when clicking on the screen
+-screen.exitonclick()
+Index: ../turtle-pro/turtle_spirograph.py
+===================================================================
+diff --git a/../turtle-pro/turtle_spirograph.py b/../turtle-pro/turtle_spirograph.py
+deleted file mode 100644
+--- a/../turtle-pro/turtle_spirograph.py	(revision cb6ae9f95bc57683db76624a64eae164fb3b0027)
++++ /dev/null	(revision cb6ae9f95bc57683db76624a64eae164fb3b0027)
+@@ -1,27 +0,0 @@
+-import turtle
+-from turtle import Turtle, Screen
+-import random
+-
+-turtle_Object = Turtle()
+-turtle_Object.shape("triangle")
+-turtle.colormode(255)
+-turtle_Object.speed("fastest")
+-def random_color():
+-    r = random.randint(0, 255)
+-    g = random.randint(0, 255)
+-    b = random.randint(0, 255)
+-    colorT = (r, g, b)
+-    return colorT
+-
+-def draw_spirograph(size_of_gap):
+-    for _ in range(int(360 / size_of_gap)):
+-        turtle_Object.color(random_color())
+-        turtle_Object.circle(100)
+-        current_heading = turtle_Object.heading()
+-        turtle_Object.setheading(current_heading + size_of_gap)
+-
+-draw_spirograph(5)
+-
+-screenObj = Screen()
+-screenObj.bgcolor("black")
+-screenObj.exitonclick()
+Index: ../Games/pong-game/.idea/.gitignore
+===================================================================
+diff --git a/../Games/pong-game/.idea/.gitignore b/../Games/pong-game/.idea/.gitignore
+deleted file mode 100644
+--- a/../Games/pong-game/.idea/.gitignore	(revision cb6ae9f95bc57683db76624a64eae164fb3b0027)
++++ /dev/null	(revision cb6ae9f95bc57683db76624a64eae164fb3b0027)
+@@ -1,3 +0,0 @@
+-# Default ignored files
+-/shelf/
+-/workspace.xml
+Index: .idea/.gitignore
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/.gitignore b/.idea/.gitignore
+new file mode 100644
+--- /dev/null	(date 1735496336663)
++++ b/.idea/.gitignore	(date 1735496336663)
+@@ -0,0 +1,3 @@
++# Default ignored files
++/shelf/
++/workspace.xml
+Index: pyproject.toml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/pyproject.toml b/pyproject.toml
+new file mode 100644
+--- /dev/null	(date 1735496003507)
++++ b/pyproject.toml	(date 1735496003507)
+@@ -0,0 +1,15 @@
++[tool.poetry]
++name = "password-manager-end"
++version = "0.1.0"
++description = ""
++authors = ["Your Name <you@example.com>"]
++
++[tool.poetry.dependencies]
++python = "^3.8"
++pyperclip = "^1.8.0"
++
++[tool.poetry.dev-dependencies]
++
++[build-system]
++requires = ["poetry>=0.12"]
++build-backend = "poetry.masonry.api"
+Index: poetry.lock
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/poetry.lock b/poetry.lock
+new file mode 100644
+--- /dev/null	(date 1735496003481)
++++ b/poetry.lock	(date 1735496003481)
+@@ -0,0 +1,16 @@
++[[package]]
++category = "main"
++description = "A cross-platform clipboard module for Python. (Only handles plain text for now.)"
++name = "pyperclip"
++optional = false
++python-versions = "*"
++version = "1.8.0"
++
++[metadata]
++content-hash = "5d9cc2f990cafa19af5e533437016df532282d216cc52a4ec219cd256360edc3"
++python-versions = "^3.8"
++
++[metadata.files]
++pyperclip = [
++    {file = "pyperclip-1.8.0.tar.gz", hash = "sha256:b75b975160428d84608c26edba2dec146e7799566aea42c1fe1b32e72b6028f2"},
++]
+Index: .idea/PasswordGenerator.iml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/PasswordGenerator.iml b/.idea/PasswordGenerator.iml
+new file mode 100644
+--- /dev/null	(date 1735496336211)
++++ b/.idea/PasswordGenerator.iml	(date 1735496336211)
+@@ -0,0 +1,10 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<module type="PYTHON_MODULE" version="4">
++  <component name="NewModuleRootManager">
++    <content url="file://$MODULE_DIR$">
++      <excludeFolder url="file://$MODULE_DIR$/.venv" />
++    </content>
++    <orderEntry type="jdk" jdkName="Python 3.12 (PasswordGenerator)" jdkType="Python SDK" />
++    <orderEntry type="sourceFolder" forTests="false" />
++  </component>
++</module>
+\ No newline at end of file
+Index: .idea/inspectionProfiles/profiles_settings.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/inspectionProfiles/profiles_settings.xml b/.idea/inspectionProfiles/profiles_settings.xml
+new file mode 100644
+--- /dev/null	(date 1735496336341)
++++ b/.idea/inspectionProfiles/profiles_settings.xml	(date 1735496336341)
+@@ -0,0 +1,6 @@
++<component name="InspectionProjectProfileManager">
++  <settings>
++    <option name="USE_PROJECT_PROFILE" value="false" />
++    <version value="1.0" />
++  </settings>
++</component>
+\ No newline at end of file
+Index: .idea/modules.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/modules.xml b/.idea/modules.xml
+new file mode 100644
+--- /dev/null	(date 1735496336241)
++++ b/.idea/modules.xml	(date 1735496336241)
+@@ -0,0 +1,8 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<project version="4">
++  <component name="ProjectModuleManager">
++    <modules>
++      <module fileurl="file://$PROJECT_DIR$/.idea/PasswordGenerator.iml" filepath="$PROJECT_DIR$/.idea/PasswordGenerator.iml" />
++    </modules>
++  </component>
++</project>
+\ No newline at end of file
+Index: .idea/misc.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/misc.xml b/.idea/misc.xml
+new file mode 100644
+--- /dev/null	(date 1735496336283)
++++ b/.idea/misc.xml	(date 1735496336283)
+@@ -0,0 +1,7 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<project version="4">
++  <component name="Black">
++    <option name="sdkName" value="Python 3.12 (PasswordGenerator)" />
++  </component>
++  <component name="ProjectRootManager" version="2" project-jdk-name="Python 3.12 (PasswordGenerator)" project-jdk-type="Python SDK" />
++</project>
+\ No newline at end of file
+Index: .idea/vcs.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/vcs.xml b/.idea/vcs.xml
+new file mode 100644
+--- /dev/null	(date 1735496336418)
++++ b/.idea/vcs.xml	(date 1735496336418)
+@@ -0,0 +1,6 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<project version="4">
++  <component name="VcsDirectoryMappings">
++    <mapping directory="$PROJECT_DIR$/.." vcs="Git" />
++  </component>
++</project>
+\ No newline at end of file
