@@ -55,7 +55,7 @@ canvas = Canvas(height=200, width=200)
 
 # Handle missing image
 try:
-    logo_img = PhotoImage(file="logo.png")
+    logo_img = PhotoImage(file="passLogo.png")
 except TclError:
     logo_img = PhotoImage()  # Default empty image in case file is not found
     print("Error: 'lockImg.jpg' not found. Using default image.")
